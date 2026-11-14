@@ -1,0 +1,3 @@
+# Copie para .thindesk-local.properties na raiz e preencha apenas no seu computador.
+# Utilize credenciais do usuario do banco Atlas, codificadas para URL.
+spring.data.mongodb.uri=mongodb+srv://SEU_USUARIO:SUA_SENHA@cluster0.p737yt3.mongodb.net/thindesk?retryWrites=true&w=majority
