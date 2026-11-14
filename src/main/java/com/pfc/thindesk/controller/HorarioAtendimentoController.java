@@ -2,37 +2,41 @@ package com.pfc.thindesk.controller;
 
 import com.pfc.thindesk.entity.HorarioAtendimento;
 import com.pfc.thindesk.service.HorarioAtendimentoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-@RestController
-@RequestMapping("/api/ajustes-horarios")
+@Controller
+@RequestMapping({"/ajustes-horarios", "/api/ajustes-horarios"})
 public class HorarioAtendimentoController {
-
-    @Autowired
-    private HorarioAtendimentoService horarioAtendimentoService;
+    private final HorarioAtendimentoService service;
+    public HorarioAtendimentoController(HorarioAtendimentoService service) { this.service = service; }
 
     @GetMapping
     public String listarHorarios(Model model) {
-        model.addAttribute("horarios", horarioAtendimentoService.listarTodos());
-        return "ajustes-horarios";
+        model.addAttribute("horarios", service.listarTodos());
+        if (!model.containsAttribute("novoHorario")) model.addAttribute("novoHorario", new HorarioAtendimento());
+        model.addAttribute("content", "ajustes-horarios");
+        return "layout";
     }
-
     @PostMapping("/salvar")
-    public String salvarHorario(@ModelAttribute HorarioAtendimento horarioAtendimento) {
-        horarioAtendimentoService.salvar(horarioAtendimento);
-        return "redirect:/ajustes-horarios";
+    public String salvarHorario(@ModelAttribute("novoHorario") HorarioAtendimento horario,
+            Model model, RedirectAttributes flash) {
+        try {
+            horario.setId(null);
+            service.salvar(horario);
+            flash.addFlashAttribute("mensagem", "Horário salvo com sucesso.");
+            return "redirect:/ajustes-horarios";
+        } catch (IllegalArgumentException exception) {
+            model.addAttribute("erro", exception.getMessage());
+            return listarHorarios(model);
+        }
     }
-
-    @GetMapping("/deletar/{id}")
-    public String deletarHorario(@PathVariable String id) {
-        horarioAtendimentoService.deletar(id);
+    @PostMapping("/deletar/{id}")
+    public String deletarHorario(@PathVariable String id, RedirectAttributes flash) {
+        service.deletar(id);
+        flash.addFlashAttribute("mensagem", "Horário excluído.");
         return "redirect:/ajustes-horarios";
     }
 }

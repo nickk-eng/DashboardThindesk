@@ -13,6 +13,7 @@ public class ChamadoService {
     private ChamadoRepository chamadoRepository;
 
     public Chamado criarChamado(Chamado chamado) {
+        if (chamado.getDataAbertura() == null) chamado.setDataAbertura(java.time.Instant.now());
         return chamadoRepository.save(chamado);
     }
 
@@ -28,6 +29,10 @@ public class ChamadoService {
                     chamado.setTipo(chamadoAtualizado.getTipo());
                     chamado.setTecnico(chamadoAtualizado.getTecnico());
                     chamado.setUsuario(chamadoAtualizado.getUsuario());
+                    // Os formulários legados não enviam os novos campos opcionais.
+                    if (chamadoAtualizado.getClienteId() != null) chamado.setClienteId(chamadoAtualizado.getClienteId());
+                    if (chamadoAtualizado.getConsideracoesTecnicas() != null) chamado.setConsideracoesTecnicas(chamadoAtualizado.getConsideracoesTecnicas());
+                    if (chamadoAtualizado.getDataConclusao() != null) chamado.setDataConclusao(chamadoAtualizado.getDataConclusao());
                     return chamadoRepository.save(chamado);
                 })
                 .orElseThrow(() -> new RuntimeException("Chamado não encontrado com id: " + id));

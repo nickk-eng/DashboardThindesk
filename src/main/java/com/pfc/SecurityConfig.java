@@ -5,10 +5,39 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.core.annotation.Order;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pfc.thindesk.api.ApiResponse;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Bean
+    @Order(1)
+    public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http, ObjectMapper mapper) throws Exception {
+        http.securityMatcher("/api/**")
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+            .requestCache(cache -> cache.disable())
+            .httpBasic(basic -> basic.authenticationEntryPoint((request, response, exception) -> {
+                response.setStatus(401);
+                response.setContentType("application/json;charset=UTF-8");
+                mapper.writeValue(response.getWriter(), ApiResponse.error(401, "Autenticação necessária. Entre novamente no sistema."));
+            }))
+            .exceptionHandling(errors -> errors
+                .authenticationEntryPoint((request, response, exception) -> {
+                    response.setStatus(401);
+                    response.setContentType("application/json;charset=UTF-8");
+                    mapper.writeValue(response.getWriter(), ApiResponse.error(401, "Autenticação necessária. Entre novamente no sistema."));
+                })
+                .accessDeniedHandler((request, response, exception) -> {
+                    response.setStatus(403);
+                    response.setContentType("application/json;charset=UTF-8");
+                    mapper.writeValue(response.getWriter(), ApiResponse.error(403, "Acesso não permitido."));
+                }));
+        return http.build();
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

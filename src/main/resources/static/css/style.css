@@ -5,6 +5,31 @@ body {
     flex-direction: row;
 }
 
+/* Dashboard: mantém a paleta cinza e os componentes Bootstrap existentes. */
+main { min-width: 0; }
+#dashboard { max-width: 1600px; margin: 0 auto; padding-bottom: 2rem; }
+.dashboard-header { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+.dashboard-header h1 { font-size: 1.8rem; }
+.dashboard-panel { background: #fff; border: 1px solid #dee2e6; border-radius: .6rem; padding: 1.25rem; }
+.dashboard-panel h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+.dashboard-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; background: #f8f9fa; }
+.dashboard-filters label { display: block; font-weight: 600; margin-bottom: .4rem; }
+.dashboard-actions { display: flex; flex-wrap: wrap; align-items: end; gap: .5rem; }
+.dashboard-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.dashboard-kpis span { color: #495057; }
+.dashboard-kpis strong { display: block; font-size: 2rem; margin-top: .5rem; }
+.dashboard-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 1rem; }
+.dashboard-chart { position: relative; height: 280px; }
+.dashboard-charts p { font-size: .85rem; color: #495057; margin: 1rem 0 0; overflow-wrap: anywhere; }
+.dashboard-table { min-width: 900px; }
+.dashboard-table td { max-width: 320px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dashboard-pagination { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+#dashboard-body[aria-busy="true"] { opacity: .5; }
+@media (max-width: 768px) {
+    #dashboard { padding-top: 2.5rem; }
+    .dashboard-pagination { flex-wrap: wrap; }
+}
+
 #sidebar {
     min-width: 250px;
     max-width: 250px;
