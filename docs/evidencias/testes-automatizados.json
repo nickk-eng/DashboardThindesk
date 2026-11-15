@@ -1,0 +1,84 @@
+{
+  "capturadoEm": "2026-11-14T20:58:59-03:00",
+  "revisao": "6e58e07",
+  "observacao": "Extraído dos relatórios reais da execução Maven anterior; os testes não foram executados novamente para esta documentação.",
+  "suites": [
+    {
+      "classe": "com.pfc.thindesk.DashboardApiTest",
+      "testes": 24,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0,
+      "duracaoSegundos": "1.61",
+      "arquivoOrigem": "target/surefire-reports/TEST-com.pfc.thindesk.DashboardApiTest.xml",
+      "casos": [
+        "sessaoDoFormularioAutenticaFetchDaApi",
+        "falhaMongoRetorna500SemExporDetalhes",
+        "mvcContinuaRedirecionandoParaLogin",
+        "detalheInexistenteRetorna404",
+        "listagemPaginadaIncluiConsideracoes",
+        "basicInvalidoRetornaJson",
+        "indicadoresVaziosNaoDividemPorZero",
+        "indicadoresCalculamPercentualEOutros",
+        "evolucaoMensalSeparaSemData",
+        "todosEndpointsAceitamFiltros(String)[1]",
+        "todosEndpointsAceitamFiltros(String)[2]",
+        "todosEndpointsAceitamFiltros(String)[3]",
+        "todosEndpointsAceitamFiltros(String)[4]",
+        "todosEndpointsAceitamFiltros(String)[5]",
+        "situacaoETiposIncluemPercentuais",
+        "parametrosInvalidosRetornam400(String)[1]",
+        "parametrosInvalidosRetornam400(String)[2]",
+        "parametrosInvalidosRetornam400(String)[3]",
+        "parametrosInvalidosRetornam400(String)[4]",
+        "parametrosInvalidosRetornam400(String)[5]",
+        "parametrosInvalidosRetornam400(String)[6]",
+        "parametrosInvalidosRetornam400(String)[7]",
+        "basicAutenticaCurl",
+        "apiSemSessaoRetornaJsonSemRedirecionar"
+      ]
+    },
+    {
+      "classe": "com.pfc.thindesk.DashboardViewTest",
+      "testes": 2,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0,
+      "duracaoSegundos": "0.476",
+      "arquivoOrigem": "target/surefire-reports/TEST-com.pfc.thindesk.DashboardViewTest.xml",
+      "casos": [
+        "homeContinuaExibindoBoasVindas",
+        "dashboardRenderizaNoLayoutComSidebar"
+      ]
+    },
+    {
+      "classe": "com.pfc.thindesk.ConfiguracaoWebTest",
+      "testes": 18,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0,
+      "duracaoSegundos": "3.972",
+      "arquivoOrigem": "target/surefire-reports/TEST-com.pfc.thindesk.ConfiguracaoWebTest.xml",
+      "casos": [
+        "excluirHorarioRedirecionaParaTela",
+        "paginasExigemLogin",
+        "nomeVazioReexibeErroSemSalvar",
+        "editarCarregaEAtualizaRegistro",
+        "horariosInvalidosReexibemMensagem(String)[1]",
+        "horariosInvalidosReexibemMensagem(String)[2]",
+        "horariosInvalidosReexibemMensagem(String)[3]",
+        "salvarPersisteNaCategoriaDaRota(String)[1]",
+        "salvarPersisteNaCategoriaDaRota(String)[2]",
+        "salvarPersisteNaCategoriaDaRota(String)[3]",
+        "salvarHorarioValidoPersisteCamposDoFormulario",
+        "registroDeOutraCategoriaRetorna404",
+        "excluirRemoveSomenteRegistroDaCategoria",
+        "horariosRenderizamFormularioEValores",
+        "paginasDoMenuRenderizamCadastros(String)[1]",
+        "paginasDoMenuRenderizamCadastros(String)[2]",
+        "paginasDoMenuRenderizamCadastros(String)[3]",
+        "erroRenderizaMensagemLocalSemCanva"
+      ]
+    }
+  ]
+}

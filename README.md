@@ -2,6 +2,12 @@
 
 Painel de acompanhamento de chamados integrado ao Spring Boot 3.4.0, MongoDB, Thymeleaf e à identidade visual existente (Bootstrap, sidebar cinza e `style.css`). A página inicial e o CRUD existente permanecem disponíveis. Acesse `/dashboard` pelo menu após autenticar.
 
+## Documentação da atividade
+
+A [documentação revisada em Word](docs/Documentacao_Thindesk.docx) reúne os requisitos, os contratos da API, as decisões de projeto e os resultados de validação.
+
+Evidências citadas no documento: [respostas reais da API](docs/evidencias/api-respostas.json), [resultados dos testes automatizados](docs/evidencias/testes-automatizados.json) e [observação da interface do dashboard](docs/evidencias/dashboard-observado.txt).
+
 ## Entrega com Gitflow
 
 Repositório: [nickk-eng/DashboardThindesk](https://github.com/nickk-eng/DashboardThindesk).
