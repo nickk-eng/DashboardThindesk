@@ -8,6 +8,10 @@ A [documentação revisada em Word](docs/Documentacao_Thindesk.docx) reúne os r
 
 Evidências citadas no documento: [respostas reais da API](docs/evidencias/api-respostas.json), [resultados dos testes automatizados](docs/evidencias/testes-automatizados.json) e [observação da interface do dashboard](docs/evidencias/dashboard-observado.txt).
 
+## Vídeo de apresentação
+
+[Assistir ou baixar a apresentação do Thindesk](docs/apresentacao/video-thindesk.mp4). Duração aproximada: **2min32s**, dentro do limite de três minutos.
+
 ## Entrega com Gitflow
 
 Repositório: [nickk-eng/DashboardThindesk](https://github.com/nickk-eng/DashboardThindesk).
