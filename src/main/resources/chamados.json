@@ -4,7 +4,7 @@
   },
   "descricao": "Chamado de Teste",
   "status": "Aberto",
-  "Tipo": "Manutenção",
+  "tipo": "Manutenção",
   "tecnico": "João",
   "usuario": "Alberto"
 }

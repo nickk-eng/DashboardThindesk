@@ -1,0 +1,113 @@
+Observação da interface em 14/11/2026
+URL: http://localhost:8080/dashboard
+
+Browser tab: 1, Title: "Layout", URL: "http://localhost:8080/dashboard".
+1 AXWebArea Layout, URL: localhost:8080/dashboard
+	2 container sidebar
+		3 heading Thindesk Menu, Value: 4
+			4 text Thindesk Menu
+		5 content list
+			6 link Description:  Dashboard administrativo, Value: localhost:8080/dashboard
+			7 link Description: Início, Value: localhost:8080/
+			8 link Description: Chamados, Value: localhost:8080/chamados
+			9 link Description: Clientes, Value: localhost:8080/clientes
+			10 link Description: Configurações ▾, Value: localhost:8080/dashboard#
+	11 container dashboard
+		12 container
+			13 heading Dashboard administrativo, Value: 1
+				14 text Dashboard administrativo
+			15 text Visão geral dos atendimentos · Thindesk
+			16 text Atualizado às 20:54:49
+		17 container dashboard-filters
+			18 text Data inicial
+			19 date field (settable) Data inicial, ID: dataInicio
+				20 container
+					21 stepper
+					22 stepper
+					23 stepper
+				24 pop up button Mostrar seletor de datas Mostrar seletor de datas
+			25 text Data final
+			26 date field (settable) Data final, ID: dataFim
+				27 container
+					28 stepper
+					29 stepper
+					30 stepper
+				31 pop up button Mostrar seletor de datas Mostrar seletor de datas
+			32 text Status
+			33 text field (settable) Status, ID: status
+			34 text Tipo
+			35 text field (settable) Tipo, ID: tipo
+			36 text Cliente (ID)
+			37 text field (settable) Cliente (ID), ID: cliente
+			38 text Buscar
+			39 text field (settable) Buscar, ID: busca
+			40 text Agrupar por
+			41 pop up button (collapsed, settable) Agrupar por, Value: Dia, ID: agrupamento, Secondary Actions: Expand
+				42 menu
+					43 (selected) Dia
+					44 Mês
+			45 button Atualizar Dados, ID: dashboard-refresh
+			46 button Limpar
+		47 text Nenhum chamado corresponde aos filtros selecionados.
+		48 container dashboard-body
+			49 container
+				50 text Total de chamados
+				51 text 0
+			52 container
+				53 text Abertos
+				54 text 0
+			55 container
+				56 text Em andamento
+				57 text 0
+			58 container
+				59 text Concluídos / fechados
+				60 text 0
+			61 container
+				62 text Taxa de resolução
+				63 text 0%
+			64 container
+				65 text Com considerações técnicas
+				66 text 0
+			67 text 0 sem data de abertura · 0 em outros status. Datas ausentes não entram na evolução temporal.
+			68 container
+				69 heading Chamados por período, Value: 2
+					70 text Chamados por período
+				71 image Description: Evolução dos chamados por data de abertura, ID: chart-periodo
+				72 text 0 períodos com registros · 0 chamados sem data.
+			73 container
+				74 heading Situação dos chamados, Value: 2
+					75 text Situação dos chamados
+				76 image Description: Distribuição dos chamados por status, ID: chart-situacao
+				77 text Sem dados.
+			78 container
+				79 heading Tipos mais demandados, Value: 2
+					80 text Tipos mais demandados
+				81 image Description: Ranking dos tipos de chamados, ID: chart-tipos
+				82 text Sem dados.
+			83 container
+				84 heading Detalhamento dos chamados, Value: 2
+					85 text Detalhamento dos chamados
+				86 table
+					87 row
+						88 cell
+							89 text Descrição
+						90 cell
+							91 text Abertura
+						92 cell
+							93 text Status
+						94 cell
+							95 text Tipo
+						96 cell
+							97 text Técnico / Usuário
+						98 cell
+							99 text Cliente (ID)
+						100 cell
+							101 text Considerações técnicas
+					102 row
+						103 cell
+							104 text Nenhum chamado nesta página.
+				105 button (disabled) Anterior, ID: dashboard-prev
+				106 text Página 1 de 1 · 0 chamados
+				107 button (disabled) Próxima, ID: dashboard-next
+
+The focused UI element is 1 AXWebArea Layout, URL: localhost:8080/dashboard

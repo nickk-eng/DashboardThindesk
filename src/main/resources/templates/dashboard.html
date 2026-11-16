@@ -1,0 +1,41 @@
+<section xmlns:th="http://www.thymeleaf.org" th:fragment="content" id="dashboard" th:attr="data-api=@{/api/dashboard}">
+    <header class="dashboard-header">
+        <div><h1>Dashboard administrativo</h1><p class="text-secondary">Visão geral dos atendimentos · Thindesk</p></div>
+        <span id="dashboard-updated" class="text-secondary" aria-live="polite"></span>
+    </header>
+    <form id="dashboard-filters" class="dashboard-panel dashboard-filters">
+        <div><label for="dataInicio">Data inicial</label><input class="form-control" type="date" name="dataInicio" id="dataInicio"></div>
+        <div><label for="dataFim">Data final</label><input class="form-control" type="date" name="dataFim" id="dataFim"></div>
+        <div><label for="status">Status</label><input class="form-control" name="status" id="status" maxlength="200" placeholder="Ex.: Aberto"></div>
+        <div><label for="tipo">Tipo</label><input class="form-control" name="tipo" id="tipo" maxlength="200" placeholder="Ex.: Manutenção"></div>
+        <div><label for="cliente">Cliente (ID)</label><input class="form-control" name="cliente" id="cliente" maxlength="200"></div>
+        <div><label for="busca">Buscar</label><input class="form-control" name="busca" id="busca" maxlength="200" placeholder="Descrição, técnico, usuário ou considerações"></div>
+        <div><label for="agrupamento">Agrupar por</label><select class="form-select" name="agrupamento" id="agrupamento"><option value="dia">Dia</option><option value="mes">Mês</option></select></div>
+        <div class="dashboard-actions"><button class="btn btn-dark" type="submit" id="dashboard-refresh">Atualizar Dados</button><button class="btn btn-outline-secondary" type="reset">Limpar</button></div>
+    </form>
+    <div id="dashboard-message" role="status" aria-live="polite" hidden></div>
+    <div id="dashboard-body" aria-busy="false">
+        <div class="dashboard-kpis">
+            <article class="dashboard-panel"><span>Total de chamados</span><strong id="kpi-total">—</strong></article>
+            <article class="dashboard-panel"><span>Abertos</span><strong id="kpi-abertos">—</strong></article>
+            <article class="dashboard-panel"><span>Em andamento</span><strong id="kpi-emAndamento">—</strong></article>
+            <article class="dashboard-panel"><span>Concluídos / fechados</span><strong id="kpi-resolvidos">—</strong></article>
+            <article class="dashboard-panel"><span>Taxa de resolução</span><strong id="kpi-taxaResolucao">—</strong></article>
+            <article class="dashboard-panel"><span>Com considerações técnicas</span><strong id="kpi-comConsideracoesTecnicas">—</strong></article>
+        </div>
+        <p id="dashboard-quality" class="text-secondary"></p>
+        <div class="dashboard-charts">
+            <article class="dashboard-panel"><h2>Chamados por período</h2><div class="dashboard-chart"><canvas id="chart-periodo" role="img" aria-label="Evolução dos chamados por data de abertura"></canvas></div><p id="periodo-summary"></p></article>
+            <article class="dashboard-panel"><h2>Situação dos chamados</h2><div class="dashboard-chart"><canvas id="chart-situacao" role="img" aria-label="Distribuição dos chamados por status"></canvas></div><p id="situacao-summary"></p></article>
+            <article class="dashboard-panel"><h2>Tipos mais demandados</h2><div class="dashboard-chart"><canvas id="chart-tipos" role="img" aria-label="Ranking dos tipos de chamados"></canvas></div><p id="tipos-summary"></p></article>
+        </div>
+        <article class="dashboard-panel mt-3">
+            <h2>Detalhamento dos chamados</h2>
+            <div class="table-responsive"><table class="table align-middle dashboard-table">
+                <thead><tr><th scope="col">Descrição</th><th scope="col">Abertura</th><th scope="col">Status</th><th scope="col">Tipo</th><th scope="col">Técnico / Usuário</th><th scope="col">Cliente (ID)</th><th scope="col">Considerações técnicas</th></tr></thead>
+                <tbody id="dashboard-rows"></tbody>
+            </table></div>
+            <div class="dashboard-pagination"><button id="dashboard-prev" class="btn btn-outline-secondary" type="button">Anterior</button><span id="dashboard-page" aria-live="polite"></span><button id="dashboard-next" class="btn btn-outline-secondary" type="button">Próxima</button></div>
+        </article>
+    </div>
+</section>

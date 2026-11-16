@@ -1,0 +1,5 @@
+/target/
+/.thindesk-local.properties
+/.env
+/.env.*
+*.log
